@@ -1,0 +1,43 @@
+<textarea id="lista" rows="10" placeholder="Pega aquí los nombres del Excel..."></textarea>
+<button id="importar">Importar alumnos</button>
+<p id="msg"></p>
+
+<script>
+const db = firebase.database();
+
+document.getElementById("importar").addEventListener("click", async () => {
+    const texto = document.getElementById("lista").value.trim();
+    const msg = document.getElementById("msg");
+
+    if (texto === "") {
+        msg.innerHTML = "⚠️ No hay datos para importar.";
+        return;
+    }
+
+    const lineas = texto.split("\n");
+
+    for (let nombre of lineas) {
+        nombre = nombre.trim();
+        if (nombre === "") continue;
+
+        // Verificar duplicados
+        const snap = await db.ref("alumnos")
+            .orderByChild("nombre")
+            .equalTo(nombre)
+            .get();
+
+        if (!snap.exists()) {
+            const id = db.ref().child("alumnos").push().key;
+
+            await db.ref("alumnos/" + id).set({
+                id,
+                nombre,
+                asistencias: 0,
+                faltas: 0
+            });
+        }
+    }
+
+    msg.innerHTML = "✔ Importación completada.";
+});
+</script>
