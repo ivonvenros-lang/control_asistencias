@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Control de Asistencias</title>
+  <link rel="stylesheet" href="css/estilos.css">
+
+  <!-- Fuente e iconos -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+    }
+
+    header {
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      font-size: 2.8em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      opacity: 0.9;
+    }
+
+    main {
+      padding: 50px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .icon-box {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2em;
+    }
+
+    .blue { background-color: #3b82f6; }
+    .green { background-color: #10b981; }
+    .orange { background-color: #f59e0b; }
+
+    .card h3 {
+      margin: 10px 0;
+      font-size: 1.3em;
+      color: #0f172a;
+    }
+
+    .card p {
+      font-size: 0.95em;
+      color: #475569;
+    }
+
+    footer {
+      background: #1e3a8a;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+
+    footer a {
+      color: #93c5fd;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>📘 Sistema de Control de Asistencias</h1>
+    <p>Gestiona tus alumnos, materias y asistencias diarias fácilmente.</p>
+  </header>
+
+  <main>
+    <div class="card" onclick="location.href='alumnos.html'">
+      <div class="icon-box blue">
+        <i data-lucide="users"></i>
+      </div>
+      <h3>Gestión de Alumnos</h3>
+      <p>Agrega, edita o consulta alumnos por grupo y materia.</p>
+    </div>
+
+    <div class="card" onclick="location.href='asistencias.html'">
+      <div class="icon-box green">
+        <i data-lucide="calendar-check"></i>
+      </div>
+      <h3>Registro de Asistencias</h3>
+      <p>Marca las asistencias, faltas o justificaciones por día.</p>
+    </div>
+
+    <div class="card" onclick="location.href='reportes.html'">
+      <div class="icon-box orange">
+        <i data-lucide="file-chart-column"></i>
+      </div>
+      <h3>Reportes y Exportaciones</h3>
+      <p>Consulta reportes por mes y exporta los datos en CSV o PDF.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>Hecho con ❤️ para la educación • Proyecto académico 2025</p>
+    <p>
+      <a href="https://github.com" target="_blank">Publicar en GitHub Pages</a> · 
+      <a href="#" target="_blank">Manual de usuario</a>
+    </p>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
+
+      color: #93c5fd;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <h1>📘 Sistema de Control de Asistencias</h1>
+    <p>Administra fácilmente tus alumnos, materias y asistencias diarias.</p>
+  </header>
+
+  <main>
+    <section class="menu-grid">
+      <div class="menu-card" onclick="location.href='alumnos.html'">
+        <i data-lucide="user-graduate"></i>
+        <h3>Gestión de Alumnos</h3>
+        <p>Agrega, edita y visualiza los alumnos registrados por grupo y materia.</p>
+      </div>
+
+      <div class="menu-card" onclick="location.href='asistencias.html'">
+        <i data-lucide="calendar-check-2"></i>
+        <h3>Registro de Asistencias</h3>
+        <p>Marca las asistencias, faltas y justificaciones de cada estudiante.</p>
+      </div>
+
+      <div class="menu-card" onclick="location.href='reportes.html'">
+        <i data-lucide="bar-chart-3"></i>
+        <h3>Reportes y Exportaciones</h3>
+        <p>Consulta totales por grupo o mes y exporta datos en CSV o PDF.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Hecho con ❤️ para la educación • Proyecto académico</p>
+    <p>
+      <a href="https://github.com" target="_blank">Publicar en GitHub Pages</a> ·
+      <a href="#" target="_blank">Guía de uso</a>
+    </p>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+
+</body>
+</html>

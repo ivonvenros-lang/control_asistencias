@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Reportes - Control</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <h1>📊 Reportes</h1>
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="alumnos.html">Alumnos</a>
+        <a href="asistencias.html">Asistencias</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h2>Totales por alumno</h2>
+
+      <div style="margin-bottom:8px" class="controls">
+        <label style="margin-right:8px">Filtrar por grupo:</label>
+        <select id="filGrupo"><option value="">--Todos--</option></select>
+
+        <label style="margin-left:10px;margin-right:6px">Mes:</label>
+        <select id="selMes" style="width:110px">
+          <option value="">--Todos--</option>
+          <option value="01">Enero</option><option value="02">Febrero</option><option value="03">Marzo</option>
+          <option value="04">Abril</option><option value="05">Mayo</option><option value="06">Junio</option>
+          <option value="07">Julio</option><option value="08">Agosto</option><option value="09">Septiembre</option>
+          <option value="10">Octubre</option><option value="11">Noviembre</option><option value="12">Diciembre</option>
+        </select>
+
+        <label style="margin-left:6px;margin-right:6px">Año:</label>
+        <select id="selAnio" style="width:100px"></select>
+
+        <button id="btnGenerar" class="small">Generar</button>
+        <button id="btnExportJSON" class="small secondary">Exportar JSON</button>
+        <button id="btnExportCSV" class="small">Exportar CSV (mes)</button>
+        <button id="btnExportPDF" class="small">Exportar PDF</button>
+      </div>
+
+      <table id="tablaReportes">
+        <thead><tr><th>Alumno</th><th>Grupo</th><th>Materia</th><th>Asist.</th><th>Faltas</th><th>Justif.</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- librerías para generar PDF (cliente) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNa5tG0kR2y6u0Z1+N1w1j1h1uZr2wsy0s3x1zqkqKQ8e8xqQbK1yB4/hYQ0pQ1t6R3cM9h8x3K0e9x8VJbDA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-/u0g0pGm3r3uQpN2GJv1t0vQ6m+4QzTt9vG1G0Jw1G6v/5n3G8u7zK1p0bQ1Z3g5r7Ff2X0qkK3Y1g0Z6x9qQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="js/db.js"></script>
+  <script src="js/reportes.js"></script>
+</body>
+</html>

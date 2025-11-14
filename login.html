@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="login-bg">
+
+<div class="login-container">
+  <div class="icon-box">
+    <i data-lucide="lock"></i>
+  </div>
+
+  <h1>Inicio de Sesión</h1>
+  <p>Acceso para docentes</p>
+
+  <form id="loginForm">
+    <label>Usuario</label>
+    <input id="usuario" type="text" required>
+
+    <label>Contraseña</label>
+    <input id="password" type="password" required>
+
+    <button type="submit">Ingresar</button>
+    <p id="errorMsg" class="error"></p>
+  </form>
+</div>
+
+<script>
+  lucide.createIcons();
+
+  const userCorrecto = "profesor";
+  const passCorrecto = "1234";
+
+  document.getElementById("loginForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    let u = usuario.value;
+    let p = password.value;
+
+    if (u === userCorrecto && p === passCorrecto) {
+      localStorage.setItem("sesion", "activa");
+      window.location.href = "index.html";
+    } else {
+      errorMsg.textContent = "Usuario o contraseña incorrectos";
+    }
+  });
+</script>
+
+</body>
+</html>

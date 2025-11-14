@@ -1,0 +1,31 @@
+/* estilos.css */
+:root{
+  --bg: #f6f8fb; --card:#ffffff; --accent:#0b63d6; --muted:#6b7280;
+  --success:#16a34a; --danger:#dc2626;
+}
+*{box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;margin:0;background:var(--bg);color:#0f172a}
+.wrap{max-width:1100px;margin:20px auto;padding:12px}
+.topbar{background:var(--accent);color:#fff;padding:14px 0}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.topbar nav a{color:#fff;margin-left:10px;text-decoration:none;font-weight:600}
+.card{background:var(--card);padding:16px;border-radius:8px;box-shadow:0 1px 4px rgba(2,6,23,0.06);margin-bottom:14px}
+h1{margin:0;font-size:20px}
+h2{margin:6px 0 12px}
+label{display:block;margin-top:8px;color:var(--muted);font-size:13px}
+input[type="text"], input[type="date"], select, textarea{width:100%;padding:8px;border:1px solid #e6e9ef;border-radius:6px;margin-top:6px}
+button{background:var(--accent);color:#fff;border:0;padding:8px 12px;border-radius:6px;cursor:pointer;margin-top:10px}
+button.secondary{background:#eef4ff;color:var(--accent);border:1px solid rgba(11,99,214,0.12)}
+.small{padding:6px 8px;font-size:13px}
+table{width:100%;border-collapse:collapse;margin-top:8px}
+th,td{padding:8px;border-bottom:1px solid #f1f3f7;text-align:left;font-size:14px}
+th{background:#f2f6fb;color:var(--muted)}
+.muted{color:var(--muted);font-size:13px}
+.actions button{margin-right:6px}
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.flex-row{display:flex;gap:10px;align-items:center}
+.pill{display:inline-block;padding:4px 8px;border-radius:999px;font-size:13px}
+.present{background:#ecfdf5;color:var(--success);border:1px solid rgba(22,163,74,0.12)}
+.absent{background:#fff1f2;color:var(--danger);border:1px solid rgba(220,38,38,0.08)}
+.just{background:#fff7ed;color:#b45309;border:1px solid rgba(180,83,9,0.08)}
+@media (max-width:900px){ .topbar .wrap{flex-direction:column;align-items:flex-start} }
