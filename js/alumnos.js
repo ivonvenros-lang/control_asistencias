@@ -65,3 +65,27 @@ window.addEventListener('DOMContentLoaded', ()=>{
   q('btnRefrescar').addEventListener('click', ()=> renderAlumnos(q('filtro').value.trim()));
   q('filtro').addEventListener('input', e=> renderAlumnos(e.target.value.trim()));
 });
+
+const db = firebase.database();
+const tabla = document.querySelector("#listaAlumnos tbody");
+
+// Escucha en tiempo real cuando se agregan alumnos
+db.ref("alumnos").on("value", snapshot => {
+    tabla.innerHTML = ""; // limpiar tabla
+
+    snapshot.forEach(child => {
+        const alumno = child.val();
+
+        const fila = `
+            <tr>
+                <td>${alumno.nombre}</td>
+                <td>${alumno.grupo}</td>
+                <td>${alumno.materia}</td>
+                <td>${alumno.asistencias}</td>
+                <td>${alumno.faltas}</td>
+            </tr>
+        `;
+
+        tabla.innerHTML += fila;
+    });
+});

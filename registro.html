@@ -1,0 +1,46 @@
+<script>
+    const db = firebase.database();
+
+    document.getElementById("formRegistro").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const nombre = document.getElementById("nombre").value.trim();
+        const grupo = document.getElementById("grupo").value.trim();
+        const materia = document.getElementById("materia").value.trim();
+        const msg = document.getElementById("msg");
+
+        msg.innerHTML = "Verificando...";
+
+        // 1. Revisar si ya existe un alumno con este nombre
+        const snapshot = await db.ref("alumnos").orderByChild("nombre").equalTo(nombre).get();
+
+        if (snapshot.exists()) {
+            msg.innerHTML = 
+                "<span style='color:red'>❌ Este alumno ya está registrado.</span>";
+            return;
+        }
+
+        // 2. Registrar al alumno
+        const id = db.ref().child("alumnos").push().key;
+
+        const datosAlumno = {
+            id: id,
+            nombre: nombre,
+            grupo: grupo,
+            materia: materia,
+            asistencias: 0,
+            faltas: 0,
+            justificaciones: 0
+        };
+
+        db.ref("alumnos/" + id).set(datosAlumno)
+            .then(() => {
+                msg.innerHTML = 
+                    "<span style='color:green'>✔ Registro exitoso. Ya puedes cerrar esta ventana.</span>";
+                document.getElementById("formRegistro").reset();
+            })
+            .catch(err => {
+                msg.innerHTML = "Error: " + err;
+            });
+    });
+</script>
